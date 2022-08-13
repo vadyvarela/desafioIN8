@@ -38,8 +38,8 @@ class _WelcomeVState extends State<WelcomeV> {
                   },
                   child: Row(
                     children: const [
-                      Text("AddVender", style: TextStyle(color: Colors.black)),
-                      Icon(Icons.account_balance_rounded,
+                      Text("Venda de Veiculos", style: TextStyle(color: Colors.black)),
+                      Icon(Icons.add,
                           size: 15, color: Colors.black)
                     ],
                   )),
@@ -56,8 +56,8 @@ class _WelcomeVState extends State<WelcomeV> {
                   },
                   child: Row(
                     children: const [
-                      Text("Criar", style: TextStyle(color: Colors.black)),
-                      Icon(Icons.account_balance_rounded,
+                      Text("Adiciona Novo Veiculos", style: TextStyle(color: Colors.black)),
+                      Icon(Icons.add,
                           size: 15, color: Colors.black)
                     ],
                   )),

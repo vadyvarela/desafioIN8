@@ -28,4 +28,15 @@ export class CreateVeiculosControllers {
 
     return response.json(veiculos)
   }
+
+  async delete(request: Request, response: Response) {
+    const { id } = request.params;
+    const veiculos = await prismaClient.veiculo.delete({
+      where: {
+        id: id
+      }
+    })
+
+    return response.json(veiculos)
+  }
 }
