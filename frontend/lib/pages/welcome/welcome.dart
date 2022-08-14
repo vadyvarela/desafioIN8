@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:frontend/models/interfaces/compra.dart';
 import 'package:frontend/models/interfaces/veiculo.dart';
-import 'package:frontend/pages/create/addvender.dart';
-import 'package:frontend/pages/create/controllers/createControllers.dart';
-import 'package:frontend/pages/create/create.dart';
+import 'package:frontend/models/interfaces/venda.dart';
+import 'package:frontend/pages/veiculo/addcomprar.dart';
+import 'package:frontend/pages/veiculo/addvender.dart';
+import 'package:frontend/pages/veiculo/controllers/createControllers.dart';
+import 'package:frontend/pages/veiculo/create.dart';
+import 'package:frontend/pages/veiculo/listcompra.dart';
+import 'package:frontend/pages/veiculo/listvenda.dart';
 import 'package:get/get.dart';
 
 class WelcomeV extends StatefulWidget {
@@ -24,23 +29,59 @@ class _WelcomeVState extends State<WelcomeV> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-          title: const Text("RentCar", style: TextStyle(color: Colors.amber)),
+          backgroundColor: Colors.indigoAccent,
+          title: const Text("Rent - Car", style: TextStyle(color: Colors.white)),
           actions: [
+            Padding(
+              padding: const EdgeInsets.all(10),
+              child: OutlinedButton(
+                  onPressed: () {
+                    Get.to(AddCompra(compra: Compra()));
+                  },
+                  child: Row(
+                    children: const [
+                      Text("Compra de Veiculos", style: TextStyle(color: Colors.white)),
+                    ],
+                  )),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(10),
+              child: OutlinedButton(
+                  onPressed: () {
+                    Get.to(const ListCompra());
+                  },
+                  child: Row(
+                    children: const [
+                      Text("Listar Compras", style: TextStyle(color: Colors.white)),
+                    ],
+                  )),
+            ),
             Padding(
               padding: const EdgeInsets.all(10),
               child: ElevatedButton(
                   style: ButtonStyle(
                     backgroundColor:
-                    MaterialStateProperty.all<Color>(Colors.white),
+                    MaterialStateProperty.all<Color>(Colors.indigoAccent),
                   ),
                   onPressed: () {
-                    Get.to(AddVender());
+                    Get.to(AddVenda(venda: Venda()));
                   },
                   child: Row(
                     children: const [
-                      Text("Venda de Veiculos", style: TextStyle(color: Colors.black)),
-                      Icon(Icons.add,
-                          size: 15, color: Colors.black)
+                      Text("Venda de Veiculos", style: TextStyle(color: Colors.white)),
+                    ],
+                  )),
+
+            ),
+            Padding(
+              padding: const EdgeInsets.all(10),
+              child: OutlinedButton(
+                  onPressed: () {
+                    Get.to(const ListVenda());
+                  },
+                  child: Row(
+                    children: const [
+                      Text("Listar Vendas", style: TextStyle(color: Colors.white)),
                     ],
                   )),
             ),
@@ -74,18 +115,20 @@ class _WelcomeVState extends State<WelcomeV> {
                   width: double.infinity,
                   child: Column(children: [
                     Container(
-                      color: Colors.grey,
+                      color: Colors.indigoAccent,
                       height: 50,
                       width: double.infinity,
                       child: Row(
                         crossAxisAlignment: CrossAxisAlignment.center,
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: const [
-                          Text("Nome", style: TextStyle(color: Colors.red)),
-                          Text("Chassi", style: TextStyle(color: Colors.amber)),
-                          Text("Cor", style: TextStyle(color: Colors.amber)),
-                          Text("Data", style: TextStyle(color: Colors.amber)),
-                          Text("Preço", style: TextStyle(color: Colors.amber)),
+                          Text("Nome", style: TextStyle(color: Colors.white)),
+                          Text("Cor", style: TextStyle(color: Colors.white)),
+                          Text("Marca", style: TextStyle(color: Colors.white)),
+                          Text("Modelo", style: TextStyle(color: Colors.white)),
+                          Text("Chassi", style: TextStyle(color: Colors.white,), textAlign: TextAlign.center,),
+                          Text("Adicionado Em", style: TextStyle(color: Colors.white)),
+
                         ],
                       ),
                     ),
@@ -110,24 +153,31 @@ class _WelcomeVState extends State<WelcomeV> {
                                   Expanded(
                                     child:
                                     Text(c.veiculos.value[index].nome?? "",
-                                        style: TextStyle(color: Colors.red), textAlign: TextAlign.center,),
-                                  ),
-                                  Expanded(
-                                    child: Text(c.veiculos.value[index].chassi?? "",
-                                        style: TextStyle(color: Colors.amber), textAlign: TextAlign.center,),
+                                        style: TextStyle(color: Colors.black), textAlign: TextAlign.center,),
                                   ),
                                   Expanded(
                                     child: Text(c.veiculos.value[index].cor?? "",
-                                        style: TextStyle(color: Colors.amber), textAlign: TextAlign.center,),
+                                        style: TextStyle(color: Colors.black), textAlign: TextAlign.center,),
                                   ),
                                   Expanded(
-                                    child: Text(c.veiculos.value[index].anoFabricacao ?? "",
-                                        style: TextStyle(color: Colors.amber), textAlign: TextAlign.center,),
+                                    child: Text(c.veiculos.value[index].marca?? "",
+                                        style: TextStyle(color: Colors.black), textAlign: TextAlign.center,),
                                   ),
                                   Expanded(
-                                    child: Text(c.veiculos.value[index].marca ?? "",
-                                        style: TextStyle(color: Colors.amber), textAlign: TextAlign.center,),
+                                    child: Text(c.veiculos.value[index].modelo?? "",
+                                      style: TextStyle(color: Colors.black), textAlign: TextAlign.center,),
                                   ),
+                                  Expanded(
+                                    child: Text(c.veiculos.value[index].chassi ?? "",
+                                      style: TextStyle(color: Colors.black), textAlign: TextAlign.center,),
+                                  ),
+
+                                  Expanded(
+                                    child:
+                                    Text(c.veiculos.value[index].anoFabricacao ?? "",
+                                        style: TextStyle(color: Colors.black), textAlign: TextAlign.center,),
+                                  ),
+
                                 ],
                               ),
                             );

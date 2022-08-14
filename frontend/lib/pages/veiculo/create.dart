@@ -1,28 +1,27 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:frontend/models/interfaces/veiculo.dart';
-import 'package:frontend/pages/create/controllers/createControllers.dart';
+import 'package:frontend/pages/veiculo/controllers/createControllers.dart';
 import 'package:frontend/pages/welcome/welcome.dart';
 import 'package:get/get.dart';
 
 class Create extends StatefulWidget {
   const Create({Key? key, required this.veiculo}) : super(key: key);
   final Veiculos veiculo;
-
   @override
   _CreateState createState() => _CreateState();
 }
 
 class _CreateState extends State<Create> {
   final createControllers c = Get.put(createControllers());
-
   var InputTextField = ["", ""];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-          title: const Text("Registro de Veiculos", style: TextStyle(color: Colors.black)),
+        backgroundColor: Colors.indigoAccent,
+          title: const Text("Registro de Veiculos", style: TextStyle(color: Colors.white)),
       ),
 
       body: Center(

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:frontend/models/interfaces/veiculo.dart';
-import 'package:frontend/pages/create/create.dart';
+import 'package:frontend/pages/veiculo/create.dart';
 import 'package:frontend/pages/welcome/welcome.dart';
 import 'package:get/get.dart';
 
