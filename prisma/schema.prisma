@@ -15,7 +15,7 @@ model Veiculo {
   nome           String
   modelo         String
   marca          String
-  ano_fabricacao DateTime
+  ano_fabricacao String
   cor            String
   chassi         String
   created_at     DateTime @default(now())
